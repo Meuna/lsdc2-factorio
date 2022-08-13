@@ -1,0 +1,9 @@
+{
+    "key": "factorio",
+    "image": "meuna/lsdc2:factorio",
+    "cpu": "2 vCPU",
+    "memory": "4 GB",
+    "portMap": {
+        "34197": "udp"
+    }
+}
