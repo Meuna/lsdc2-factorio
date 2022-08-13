@@ -1,0 +1,10 @@
+{
+  "name": "LSDC2",
+  "description": "Le serveur des copains",
+  "max_players": 0,
+  "visibility": {
+    "public": false,
+    "lan": false
+  },
+  "game_password": "factorio"
+}
