@@ -1,10 +1,13 @@
 FROM ubuntu:22.04
 
-ARG VERSION=stable
+ENV VERSION=stable \
+    WORLD_NAME=lsdc2 \
+    PASSWORD=factorio
 
-ENV FACTORIO_HOME=/factorio/
-
-ENV WORLD_NAME=lsdc2 \
+ENV FACTORIO_HOME=/factorio/ \
+    VERSION=stable \
+    VERSION_URL=https://www.factorio.com/get-download/$VERSION/headless/linux64 \
+    WORLD_NAME=lsdc2 \
     SERVER_PORT=34197
 
 ENV LSDC2_SNIFF_IFACE="eth0" \
@@ -19,18 +22,15 @@ ENV LSDC2_SNIFF_IFACE="eth0" \
 WORKDIR $FACTORIO_HOME
 
 ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.1.0/serverwrap /serverwrap
-ADD https://www.factorio.com/get-download/$VERSION/headless/linux64 /factorio.tar.xz
 
 COPY start-server.sh server-settings.json $FACTORIO_HOME
 
-RUN apt-get update && apt-get install -y xz-utils ca-certificates \
+RUN apt-get update && apt-get install -y curl jq xz-utils ca-certificates \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd -g $LSDC2_GID -o factorio \
-    && useradd -g $LSDC2_GID -u $LSDC2_UID -o --no-create-home factorio \
-    && tar -xJf /factorio.tar.xz --directory=$FACTORIO_HOME/.. \
-    && rm /factorio.tar.xz \
-    && chmod u+x /serverwrap \
-    && chown -R factorio:factorio $FACTORIO_HOME
+    && useradd -g $LSDC2_GID -u $LSDC2_UID -d $FACTORIO_HOME -o --no-create-home factorio \
+    && chown -R factorio:factorio $FACTORIO_HOME \
+    && chmod u+x /serverwrap start-server.sh
 
 EXPOSE 34197/udp
 ENTRYPOINT ["/serverwrap"]
