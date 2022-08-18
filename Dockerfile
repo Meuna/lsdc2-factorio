@@ -2,11 +2,10 @@ FROM ubuntu:22.04
 
 ENV VERSION=stable \
     WORLD_NAME=lsdc2 \
-    PASSWORD=factorio
+    PASSWORD=factorio \
+    FACTORIO_HOME=/factorio/
 
-ENV FACTORIO_HOME=/factorio/ \
-    VERSION=stable \
-    VERSION_URL=https://www.factorio.com/get-download/$VERSION/headless/linux64 \
+ENV VERSION_URL=https://www.factorio.com/get-download/$VERSION/headless/linux64 \
     WORLD_NAME=lsdc2 \
     SERVER_PORT=34197
 
@@ -21,7 +20,7 @@ ENV LSDC2_SNIFF_IFACE="eth0" \
 
 WORKDIR $FACTORIO_HOME
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.1.0/serverwrap /serverwrap
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.2.0/serverwrap /serverwrap
 
 COPY start-server.sh server-settings.json $FACTORIO_HOME
 

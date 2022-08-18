@@ -5,5 +5,8 @@
     "memory": "4 GB",
     "portMap": {
         "34197": "udp"
+    },
+    "envMap": {
+        "LSDC2_SNIFF_IFACE": "eth1"
     }
 }
