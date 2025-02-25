@@ -1,3 +1,3 @@
 #!/bin/bash
-sudo docker build . -t meuna/lsdc2:factorio
-sudo docker push meuna/lsdc2:factorio
+podman build . -t docker.io/meuna/lsdc2:factorio
+podman push docker.io/meuna/lsdc2:factorio
