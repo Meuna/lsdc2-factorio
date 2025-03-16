@@ -20,7 +20,7 @@ ENV LSDC2_SNIFF_IFACE="eth0" \
 
 WORKDIR $FACTORIO_HOME
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.2.0/serverwrap /serverwrap
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.3.1/serverwrap /serverwrap
 
 COPY start-server.sh server-settings.json $FACTORIO_HOME
 
