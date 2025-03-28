@@ -13,5 +13,8 @@
         "LSDC2_SNIFF_IFACE": "eth1",
         "LSDC2_SCAN_STDOUT": "true",
         "LSDC2_WAKEUP_SENTINEL": "changing state from(CreatingGame) to(InGame)"
+    },
+    "envParamMap": {
+        "SERVER_PASS": "Password"
     }
 }
