@@ -1,10 +1,10 @@
 {
-    "name": "factorio",
+    "name": "factorio-ecs",
     "engineType": "ecs",
     "engine": {
         "image": "meuna/lsdc2:factorio",
-        "cpu": "4 vCPU",
-        "memory": "10 GB"
+        "cpu": "2 vCPU",
+        "memory": "2 GB"
     },
     "portMap": {
         "34197": "udp"
