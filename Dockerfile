@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y curl xz-utils ca-certificates \
     && useradd -g $LSDC2_GID -u $LSDC2_UID -d $LSDC2_HOME -o --no-create-home $LSDC2_USER \
     && chown -R $LSDC2_USER:$LSDC2_USER $LSDC2_HOME
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.4.4/serverwrap /usr/local/bin
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.5.0/serverwrap /usr/local/bin
 COPY start-server.sh $LSDC2_HOME
 RUN chown $LSDC2_USER:$LSDC2_USER start-server.sh \
     && chmod +x /usr/local/bin/serverwrap start-server.sh
