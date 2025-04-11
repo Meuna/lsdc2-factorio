@@ -6,16 +6,16 @@
         "cpu": "2 vCPU",
         "memory": "2 GB"
     },
-    "portMap": {
-        "34197": "udp"
+    "ingress": {
+        "udp": [34197]
     },
-    "envMap": {
+    "env": {
         "LSDC2_LOW_MEMORY_WARNING_MB": "512",
         "LSDC2_LOW_MEMORY_SIGNAL_MB": "256",
         "LSDC2_SCAN_STDOUT": "true",
         "LSDC2_WAKEUP_SENTINEL": "changing state from(CreatingGame) to(InGame)"
     },
-    "envParamMap": {
+    "params": {
         "SERVER_PASS": "Password"
     }
 }
